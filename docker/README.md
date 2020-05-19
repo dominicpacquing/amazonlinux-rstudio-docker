@@ -1,12 +1,12 @@
-### Rstudio with Shiny docker image
+# Rstudio with Shiny Server
 
 Purpose of this image is to be used as test bed before creating actual AmazonLinux AMI
 
-### Building the image
+## Building the image
 
     docker build -t rstudio-local:1 . 
 
-### Usage
+## Usage
 
 Rstudio is exposed at 8787 while Shiny server is exposed at 3838
 
