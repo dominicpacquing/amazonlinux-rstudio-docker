@@ -1,0 +1,20 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "gbailey/amzn2"
+  config.vm.box_version = "20200508.0.0"
+
+  config.vbguest.auto_update = false
+  # do NOT download the iso file from a webserver
+  config.vbguest.no_remote = true
+
+  config.vm.synced_folder "/Users/dominicpacquing/Projects/qantas/lto-ansible", "/lto-ansible"
+
+  config.vm.provision "shell", path: "./scripts/enable-ansible.sh"
+
+  config.vm.network "forwarded_port", guest: 8787, host: 8787
+  config.vm.network "forwarded_port", guest: 3838, host: 3838
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+    v.cpus = 2
+  end
+end
