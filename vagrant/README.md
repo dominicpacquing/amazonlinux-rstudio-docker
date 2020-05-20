@@ -29,10 +29,11 @@
 
     vagrant ssh
 
-    sudo su
+    sudo su - root
 
     cd /lto-ansible
 
+    ansible-playbook -i inventories/hosts deploy_role_local.yml -e "role_to_deploy=jupyterhub hosts=local use_sts=false set_dns=false"
     ansible-playbook -i inventories/hosts deploy_role_local.yml -e "role_to_deploy=rstudio hosts=local use_sts=false set_dns=false"
     
     

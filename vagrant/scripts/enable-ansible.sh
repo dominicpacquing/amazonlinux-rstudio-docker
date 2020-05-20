@@ -1,3 +1,3 @@
-amazon-linux-extras install -y ansible2
-yum -y install python-pip
-pip install boto3
+yum install -y python3-devel
+pip3 install ansible
+pip3 install boto3
