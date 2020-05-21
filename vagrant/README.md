@@ -8,18 +8,9 @@
 
         brew install virtualbox
 
-### Setup
-
 * Install vbguest vagrant plugin
 
-
 		vagrant plugin install vagrant-vbguest
-
-
-* Update Vagrantfile to point to lto-ansible 
-
-
-		config.vm.synced_folder 
 
 
 ### Running
