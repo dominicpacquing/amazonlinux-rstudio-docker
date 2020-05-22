@@ -1,0 +1,14 @@
+### Python setup
+- name: Install Python
+  yum:
+    name:
+      - "python2"
+      - "python{{ python3_install_version }}"
+    state: present
+
+- name: Install python-pip
+  yum:
+    name:
+      - "python{{ python2_install_version }}-pip"
+      - "python{{ python3_install_version }}-pip"
+    state: present

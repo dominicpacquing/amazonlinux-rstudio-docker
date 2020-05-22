@@ -1,0 +1,36 @@
+### ql_common_linux
+- name: Ensure epel repo present
+  shell:
+    amazon-linux-extras install -y epel
+
+- name: Upgrade all security related packages
+  yum:
+    name: '*'
+    state: latest
+    security: true
+
+- name: Ensure common packages present
+  yum:
+    name:
+      - acl
+      - bash-completion
+      - dos2unix
+      - htop
+      - jq
+      - mlocate
+      - screen
+      - unzip
+      - wget
+      - yum-utils
+    state: present
+    enablerepo: epel
+
+### Awscli, Boto and Boto3 required for some Ansible AWS modules
+- name: Ensure aws-cli boto and boto3 present
+  pip:
+    name:
+      - awscli
+      - boto
+      - boto3
+      - httpie
+    state: present

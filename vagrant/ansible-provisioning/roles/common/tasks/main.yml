@@ -1,0 +1,7 @@
+- name: Set authorized key taken from file
+  authorized_key:
+    user: ec2-user
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - public_keys/ec2_user.pub

@@ -4,3 +4,4 @@
 /**/**/.vagrant
 tmp
 /**/**/venv
+vagrant/ansible-provisioning/files/public_keys/**

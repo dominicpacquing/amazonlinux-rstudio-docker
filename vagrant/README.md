@@ -1,4 +1,5 @@
 ### Pre-requisites
+* Python3
 
 * Vagrant
 
@@ -12,10 +13,23 @@
 
 		vagrant plugin install vagrant-vbguest
 
+* Virtualenv & Ansible
 
+        python3 -m venv venv/
+        source venv/bin/activate
+        pip install ansible
+        deactivate #optional
+        
+* Copy your public key to files/public_keys as ec2-user.pub
+
+        cp ~/.ssh/id_rsa.pub ansible-provisioning/files/public_keys/ec2_user.pub
+        
 ### Running
 
+1. Activate virtualenv
 
+        source venv/bin/activate
+    
 1. Spin up vm
 
         vagrant up
@@ -34,6 +48,16 @@
 
         ssh -o UserKnownHostsFile=/dev/null ec2-user@192.168.50.4
             
+### Caveats
+
+* Sometimes the provisioner may get stuck since other processes are installing packages
+
+        fatal: [default]: FAILED! => {"changed": false, "msg": "yum lockfile is held by another process"}
+        
+  In this case just run the provisioner again
+  
+        vagrant provision
+        
 ### Clean up
 
 
