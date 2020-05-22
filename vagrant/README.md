@@ -30,7 +30,10 @@
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=jupyterhub hosts=vagrant use_sts=false set_dns=false" -u ec2-user
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=rstudio hosts=vagrant use_sts=false set_dns=false" -u ec2-user
     
-    
+4. SSH
+
+        ssh -o UserKnownHostsFile=/dev/null ec2-user@192.168.50.4
+            
 ### Clean up
 
 
