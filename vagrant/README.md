@@ -17,13 +17,16 @@
 
         python3 -m venv venv/
         source venv/bin/activate
-        pip install ansible
+        pip install -r requirements.txt
         deactivate #optional
         
 * Copy your public key to files/public_keys as ec2-user.pub
 
         cp ~/.ssh/id_rsa.pub ansible-provisioning/files/public_keys/ec2_user.pub
         
+### Changes to requirements.in
+
+In any case you need to change requirements, please update the requirements.in then run `pip-compile --generate-hashes`
 ### Running
 
 1. Activate virtualenv
@@ -43,7 +46,7 @@
 
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=jupyterhub hosts=vagrant use_sts=false set_dns=false" -u ec2-user
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=rstudio hosts=vagrant use_sts=false set_dns=false" -u ec2-user
-    
+        
 4. SSH
 
         ssh -o UserKnownHostsFile=/dev/null ec2-user@192.168.50.4
