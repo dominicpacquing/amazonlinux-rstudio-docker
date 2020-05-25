@@ -18,6 +18,7 @@
         python3 -m venv venv/
         source venv/bin/activate
         pip install -r requirements.txt
+        pip install pip-tools
         deactivate #optional
         
 * Copy your public key to files/public_keys as ec2-user.pub
