@@ -51,6 +51,7 @@ In any case you need to change requirements, please update the requirements.in t
 
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=jupyterhub hosts=vagrant use_sts=false set_dns=false" -u ec2-user
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=rstudio hosts=vagrant use_sts=false set_dns=false" -u ec2-user
+        ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=spark hosts=vagrant use_sts=false set_dns=false" -u ec2-user
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=ql_data_scientist_devbox hosts=vagrant use_sts=false set_dns=false" -u ec2-user
         
 5. SSH

@@ -5,3 +5,13 @@
     key: '{{ item }}'
   with_file:
     - public_keys/ec2_user.pub
+
+- name: Copy minio binary
+  copy:
+    src: minio
+    dest: /minio
+
+- name: Change minio binary permission
+  file:
+    dest: /minio
+    mode: +x
