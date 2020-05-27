@@ -36,21 +36,26 @@ In any case you need to change requirements, please update the requirements.in t
     
 1. Spin up vm
 
-        vagrant up
+        vagrant up --no-provision
 
-2. Update inventory to use static ip address 
+2. Update ansible inventory to use static ip address 
 
         [vagrant]
         192.168.50.4
         
-3. Go to your playbook and run pointing to that host
+3. Provision the VM
+
+        vagrant provision
+        
+4. Go to your playbook and run pointing to that host
 
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=jupyterhub hosts=vagrant use_sts=false set_dns=false" -u ec2-user
         ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=rstudio hosts=vagrant use_sts=false set_dns=false" -u ec2-user
+        ansible-playbook -i inventories/hosts deploy_role_host.yml -e "role_to_deploy=ql_data_scientist_devbox hosts=vagrant use_sts=false set_dns=false" -u ec2-user
         
-4. SSH
+5. SSH
 
-        ssh -o UserKnownHostsFile=/dev/null ec2-user@192.168.50.4
+            ssh -o UserKnownHostsFile=/dev/null ec2-user@192.168.50.4
             
 ### Caveats
 
