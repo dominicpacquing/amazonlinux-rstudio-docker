@@ -28,6 +28,7 @@
 ### Awscli, Boto and Boto3 required for some Ansible AWS modules
 - name: Ensure aws-cli boto and boto3 present
   pip:
+    executable: /usr/bin/pip3
     name:
       - awscli
       - boto
